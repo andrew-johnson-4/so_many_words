@@ -1,0 +1,11 @@
+[package]
+name = "so_many_words"
+version = "0.0.1"
+authors = ["Andrew <andrew@subarctic.org>"]
+license = "MIT OR Apache-2.0"
+description = "Not Linear Programming"
+edition = "2018"
+readme = "README.md"
+repository = "https://github.com/andrew-johnson-4/so_many_words"
+documentation = "https://docs.rs/so_many_words/"
+keywords = ["natural","language","processing","nlp"]
