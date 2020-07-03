@@ -3,7 +3,7 @@ So Many Words!!
 
 [![Crates.IO](https://img.shields.io/crates/v/so_many_words.svg)](https://crates.rs/crates/so_many_words)
 
-This writes a lot of words, not so much for reading.
+This writes a lot of words, not so much for reading. Maybe this could eventually be useful for directed automatic translation.
 
 ## Contribution
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in so_many_words by you,
