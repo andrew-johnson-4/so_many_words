@@ -2,9 +2,15 @@ use bitflags::bitflags;
 
 bitflags! {
    pub struct WordUsage: u32 {
-      const SINGULAR           = 0b00000000_00000000_00000000_00000001;
-      const PLURAL             = 0b00000000_00000000_00000000_00000010;
+      const SINGULAR                   = 0b00000000_00000000_00000000_00000001;
+      const PLURAL                     = 0b00000000_00000000_00000000_00000010;
       //2 Pluralities
+
+      const LINKING                    = 0b00000000_00000000_00000000_00000100;
+      const INTRANSITIVE               = 0b00000000_00000000_00000000_00001000;
+      const MONOTRANSITIVE             = 0b00000000_00000000_00000000_00010000;
+      const DITRANSITIVE               = 0b00000000_00000000_00000000_00100000;
+      //4 Transitivities
 
       const PRESENT_SIMPLE             = 0b00000000_00000000_00000001_00000000;
       const PRESENT_CONTINUOUS         = 0b00000000_00000000_00000010_00000000;
