@@ -1,2 +1,3 @@
 Cargo.lock
 target/
+data/enwiktionary-latest-abstract.xml.gz
