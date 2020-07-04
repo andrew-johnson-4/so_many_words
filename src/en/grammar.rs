@@ -1,5 +1,9 @@
+use smart_default::*;
+
+#[derive(SmartDefault)]
 pub enum Plurality {
-   Plural,
+   #[default]
+   Neuter,
    Singular,
-   Neuter
+   Plural,
 }
