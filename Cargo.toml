@@ -11,4 +11,5 @@ documentation = "https://docs.rs/so_many_words/"
 keywords = ["natural","language","processing","nlp"]
 
 [dependencies]
-smart-default = "0.6.0"
+radix_trie = "0.2.0"
+bitflags = "1.2.1"
