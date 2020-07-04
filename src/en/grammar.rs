@@ -24,3 +24,19 @@ pub enum VerbTense {
    FutureContinuous,
    FuturePerfectContinuous,
 }
+
+#[derive(SmartDefault)]
+pub enum PartOfSpeech {
+   #[default]
+   Noun,
+   Verb,
+   Adjective,
+   Adverb,
+   Pronoun,
+   Preposition,
+   Conjunction,
+   Interjection,
+   Numeral,
+   Article,
+   Determiner,
+}
