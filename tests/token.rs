@@ -1,4 +1,4 @@
-use so_many_words::en::tokens::{is_numeral,is_punctuation};
+use so_many_words::en::tokens::{is_numeral,is_punctuation,is_word,tokenize};
 
 
 #[test]
@@ -42,3 +42,35 @@ fn token6() {
       is_punctuation("{")
    );
 }
+
+#[test]
+fn token7() {
+   assert!(
+      is_word("albeit")
+   );
+}
+
+#[test]
+fn token8() {
+   assert!(
+      is_word("gr8")
+   );
+}
+
+#[test]
+fn token9() {
+   let v: Vec<String> = Vec::new();
+   assert_eq!(
+      tokenize("   "),
+      v
+   )
+}
+
+#[test]
+fn token10() {
+   assert_eq!(
+      tokenize("abcd8 999   :,"),
+      vec!["abcd8".to_string(), "999".to_string(), ":".to_string(), ",".to_string()]
+   )
+}
+

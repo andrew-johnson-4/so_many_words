@@ -12,7 +12,7 @@ use so_many_words::en::tensor::DictionLayer;
 use so_many_words::en::tokens::tokenize;
 
 fn main() {
-   let mut nn = DictionLayer::new();
+   let _nn = DictionLayer::new();
 
    if let Ok(lines) = read_lines("data/gutenberg_sentences.txt") {
       for line in lines {
