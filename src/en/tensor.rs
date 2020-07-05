@@ -1,5 +1,6 @@
 use crate::en::grammar::WordUsage;
 
+#[derive(Copy,Clone)]
 pub struct WordUsageTensor {
    pub tensor: [f64; 32]
 }
@@ -72,24 +73,22 @@ impl WordUsageTensor {
    }
 }
 
-/*
 use radix_trie::Trie;
 
 pub struct DictionNetwork {
    diction: Trie<String,WordUsageTensor>
 }
 impl DictionNetwork {
-   pub fn new() -> Dictionary {
-      Dictionary {
+   pub fn new() -> DictionNetwork {
+      DictionNetwork {
          diction: Trie::new()
       }
    }
    pub fn add(&mut self, key: String, usage: WordUsageTensor) {
       if let Some(record) = self.diction.get_mut(&key) {
-         *record += usage;
+         *record = *record + usage;
       } else {
          self.diction.insert(key, usage);
       }
    }
 }
-*/

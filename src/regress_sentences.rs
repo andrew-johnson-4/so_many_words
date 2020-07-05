@@ -1,5 +1,7 @@
+use so_many_words::en::tensor::DictionNetwork;
+
 fn main() {
-   //let nn = DictionNetwork::new()
+   let _nn = DictionNetwork::new();
 
    //softmax vocabulary words from seed
    //  data/wiktionary_en.txt
