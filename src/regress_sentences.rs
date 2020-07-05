@@ -1,7 +1,7 @@
-use so_many_words::en::tensor::DictionNetwork;
+use so_many_words::en::tensor::DictionLayer;
 
 fn main() {
-   let _nn = DictionNetwork::new();
+   let _nn = DictionLayer::new();
 
    //softmax vocabulary words from seed
    //  data/wiktionary_en.txt
