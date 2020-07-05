@@ -1,4 +1,7 @@
 Cargo.lock
 target/
+data/gutenberg_sentences.txt
+data/enwiki-latest-abstract*
+data/wiktionary_sentences_en.txt.txt
 data/enwiktionary-latest-abstract.xml.gz
 data/wiktionary_en.txt
