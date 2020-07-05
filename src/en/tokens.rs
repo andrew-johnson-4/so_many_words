@@ -1,15 +1,20 @@
 use regex::Regex;
 
 pub fn tokenize(s: &str) -> Vec<String> {
-   let num = Regex::new("[0-9]+").unwrap();
-   //let word = Regex::new("").unwrap();
+   let whitespace = Regex::new("\\s+").unwrap();
+   let numeral = Regex::new("\\d+").unwrap();
+   let word = Regex::new("\\w+").unwrap();
    vec![]
 }
 
 pub fn is_numeral(s: &str) -> bool {
-   false
+   let numeral = Regex::new("[0123456789]+").unwrap();
+   if let Some(m) = numeral.find(s) {
+      m.start()==0 && m.end()==s.len()
+   } else { false }
 }
 
 pub fn is_punctuation(s: &str) -> bool {
-   false
+   let nonpunct = Regex::new("(\\s|[0123456789]|\\w)").unwrap();
+   !nonpunct.is_match(s)
 }
