@@ -1,4 +1,6 @@
 fn main() {
+   //let nn = DictionNetwork::new()
+
    //softmax vocabulary words from seed
    //  data/wiktionary_en.txt
    //over

@@ -48,3 +48,48 @@ impl From<WordUsage> for WordUsageTensor {
       }
    }
 }
+
+impl std::ops::Add for WordUsageTensor {
+   type Output = Self;
+
+   fn add(self, other: Self) -> Self {
+      let mut tensor: [f64; 32] = [0.0; 32];
+      for i in 0..32 {
+         tensor[i] += self.tensor[i];
+         tensor[i] += other.tensor[i];
+      }
+      WordUsageTensor {
+         tensor: tensor
+      }
+   }
+}
+
+impl WordUsageTensor {
+   pub fn multiply(&mut self, c: f64) {
+      for i in 0..32 {
+         self.tensor[i] *= c;
+      }
+   }
+}
+
+/*
+use radix_trie::Trie;
+
+pub struct DictionNetwork {
+   diction: Trie<String,WordUsageTensor>
+}
+impl DictionNetwork {
+   pub fn new() -> Dictionary {
+      Dictionary {
+         diction: Trie::new()
+      }
+   }
+   pub fn add(&mut self, key: String, usage: WordUsageTensor) {
+      if let Some(record) = self.diction.get_mut(&key) {
+         *record += usage;
+      } else {
+         self.diction.insert(key, usage);
+      }
+   }
+}
+*/
