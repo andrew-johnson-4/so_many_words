@@ -43,5 +43,18 @@ bitflags! {
 
 pub enum EBNF {
    Sentinel(WordUsage),
-   Phrase(Vec<EBNF>),
+   Sequence(Vec<EBNF>),
+   Choice(Vec<EBNF>),
+}
+
+pub struct RigidLanguage;
+impl RigidLanguage {
+   pub fn new() -> EBNF {
+      let rigid_subject      : EBNF = EBNF::Sentinel(WordUsage::NOUN);
+      let rigid_verb         : EBNF = EBNF::Sentinel(WordUsage::VERB);
+      let rigid_direct_object: EBNF = EBNF::Sentinel(WordUsage::NOUN);
+      let rigid_adverb       : EBNF = EBNF::Sentinel(WordUsage::ADVERB);
+      let rigid_sentence     : EBNF = EBNF::Sequence(vec![rigid_subject, rigid_verb, rigid_direct_object, rigid_adverb]);
+      rigid_sentence
+   }
 }
