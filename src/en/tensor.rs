@@ -75,12 +75,12 @@ impl WordUsageTensor {
 
 use radix_trie::Trie;
 
-pub struct DictionNetwork {
+pub struct DictionLayer {
    diction: Trie<String,WordUsageTensor>
 }
-impl DictionNetwork {
-   pub fn new() -> DictionNetwork {
-      DictionNetwork {
+impl DictionLayer {
+   pub fn new() -> DictionLayer {
+      DictionLayer {
          diction: Trie::new()
       }
    }
