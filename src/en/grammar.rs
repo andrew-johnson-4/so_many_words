@@ -1,7 +1,7 @@
 use bitflags::bitflags;
 
 bitflags! {
-   pub struct WordUsage: u32 {
+   pub struct WordUsage: u64 {
       const SINGULAR                   = 0b00000000_00000000_00000000_00000001;
       const PLURAL                     = 0b00000000_00000000_00000000_00000010;
       //2 Pluralities
