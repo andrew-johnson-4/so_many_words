@@ -40,3 +40,8 @@ bitflags! {
       //11 Parts of Speech
    }
 }
+
+pub enum EBNF {
+   Sentinel(WordUsage),
+   Phrase(Vec<EBNF>),
+}
