@@ -13,3 +13,7 @@ keywords = ["natural","language","processing","nlp"]
 [dependencies]
 radix_trie = "0.2.0"
 bitflags = "1.2.1"
+
+[[bin]]
+name = "regress_sentences"
+path = "src/regress_sentences.rs"
