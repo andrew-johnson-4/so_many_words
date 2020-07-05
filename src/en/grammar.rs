@@ -26,6 +26,7 @@ bitflags! {
       const FUTURE_PERFECT_CONTINUOUS  = 0b00000000_00001000_00000000_00000000;
       //12 Verb Tenses
 
+      const PUNCTUATION                = 0b00000000_00010000_00000000_00000000;
       const NUMERAL                    = 0b00000000_00100000_00000000_00000000;
       const ARTICLE                    = 0b00000000_01000000_00000000_00000000;
       const DETERMINER                 = 0b00000000_10000000_00000000_00000000;
@@ -37,7 +38,7 @@ bitflags! {
       const PREPOSITION                = 0b00100000_00000000_00000000_00000000;
       const CONJUNCTION                = 0b01000000_00000000_00000000_00000000;
       const INTERJECTION               = 0b10000000_00000000_00000000_00000000;
-      //11 Parts of Speech
+      //12 Parts of Speech
    }
 }
 
