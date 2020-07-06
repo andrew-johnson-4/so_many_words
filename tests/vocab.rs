@@ -15,7 +15,7 @@ fn vocab1() {
    let mut d = Dictionary::new();
    d.load("data/testy.txt");
    assert!(
-      d.usage("123").contains(WordUsage::NUMERAL)
+      d.usage("123").contains(WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE)
    );
 }
 
