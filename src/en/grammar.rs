@@ -91,6 +91,7 @@ impl RigidLanguage {
       let rigid_verb           = l.v(WordUsage::VERB, false);
       let rigid_direct_object  = l.v(WordUsage::NOUN, false);
       let rigid_adverb         = l.v(WordUsage::ADVERB, true);
+      l.e(0, rigid_subject);
       l.e(rigid_subject, rigid_verb);
       l.e(rigid_verb, rigid_direct_object);
       l.e(rigid_direct_object, rigid_adverb);
