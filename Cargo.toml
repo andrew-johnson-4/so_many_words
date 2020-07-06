@@ -20,5 +20,9 @@ name = "regress_sentences"
 path = "src/regress_sentences.rs"
 
 [[bin]]
+name = "generate_empty_dictionary"
+path = "src/bin_generate_empty_dictionary.rs"
+
+[[bin]]
 name = "tokenize"
 path = "src/bin_tokenize.rs"
