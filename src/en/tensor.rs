@@ -92,3 +92,10 @@ impl DictionLayer {
       }
    }
 }
+
+use crate::en::vocabulary::Dictionary;
+impl From<Dictionary> for DictionLayer {
+   fn from(_dict: Dictionary) -> Self {
+      DictionLayer::new()
+   }
+}
