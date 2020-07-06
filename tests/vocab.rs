@@ -15,7 +15,23 @@ fn vocab1() {
    let mut d = Dictionary::new();
    d.load("data/testy.txt");
    assert!(
-      d.usage("123").contains(WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE)
+      d.usage("123").contains(WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE | WordUsage::PLURAL)
+   );
+}
+#[test]
+fn vocab1_2() {
+   let mut d = Dictionary::new();
+   d.load("data/testy.txt");
+   assert!(
+      d.usage("0").contains(WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE | WordUsage::PLURAL)
+   );
+}
+#[test]
+fn vocab1_3() {
+   let mut d = Dictionary::new();
+   d.load("data/testy.txt");
+   assert!(
+      d.usage("1").contains(WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE | WordUsage::SINGULAR)
    );
 }
 

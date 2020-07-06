@@ -38,7 +38,8 @@ impl Dictionary {
    }
    pub fn usage(&self, word: &str) -> WordUsage {
       if is_numeral(word) {
-         WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE
+         WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE |
+         (if word=="1" { WordUsage::SINGULAR } else { WordUsage::PLURAL })
       } else if is_punctuation(word) {
          WordUsage::PUNCTUATION
       } else if let Some(usage) = self.diction.get(word) {
