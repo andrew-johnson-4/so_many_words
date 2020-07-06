@@ -45,6 +45,7 @@ bitflags! {
 }
 impl WordUsage {
    pub fn raise(&mut self, flag: &str) {
+      let flag = flag.to_uppercase();
       if flag=="PUNCTUATION" { *self |= WordUsage::PUNCTUATION }
       else if flag=="NUMERAL" { *self |= WordUsage::NUMERAL }
       else if flag=="ARTICLE" { *self |= WordUsage::ARTICLE }

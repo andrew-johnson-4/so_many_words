@@ -1,5 +1,6 @@
 use crate::en::grammar::WordUsage;
 use crate::util::read_lines;
+use crate::en::tokens::{is_numeral,is_punctuation};
 use radix_trie::Trie;
 
 pub struct Dictionary {
@@ -26,14 +27,24 @@ impl Dictionary {
                if ds.len()!=2 { continue; }
                let word = ds[0].to_string();
                let usage = ds[1].to_string();
+               let mut wu = WordUsage::NONE;
                for u in usage.split(",") {
-                  println!("{}: {}", word, u);
+                  wu.raise(u);
                }
+               self.insert(word, wu);
             }
          }
       }
    }
    pub fn usage(&self, word: &str) -> WordUsage {
-      WordUsage::NONE
+      if is_numeral(word) {
+         WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE
+      } else if is_punctuation(word) {
+         WordUsage::PUNCTUATION
+      } else if let Some(usage) = self.diction.get(word) {
+         usage.clone()
+      } else {
+         WordUsage::NONE
+      }
    }
 }
