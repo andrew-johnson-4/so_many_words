@@ -1,0 +1,5 @@
+I	noun,pronoun
+climb	verb
+the	determiner
+fence	noun
+quickly	adverb
