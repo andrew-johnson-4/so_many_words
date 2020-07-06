@@ -66,17 +66,17 @@ impl std::fmt::Display for WordUsage {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
        let mut out = String::new();
        if self.contains(WordUsage::PUNCTUATION) { out.push_str(",punctuation"); }
-       else if self.contains(WordUsage::NUMERAL) { out.push_str(",numeral"); }
-       else if self.contains(WordUsage::ARTICLE) { out.push_str(",article"); }
-       else if self.contains(WordUsage::DETERMINER) { out.push_str(",determiner"); }
-       else if self.contains(WordUsage::NOUN) { out.push_str(",noun"); }
-       else if self.contains(WordUsage::VERB) { out.push_str(",verb"); }
-       else if self.contains(WordUsage::ADJECTIVE) { out.push_str(",adjective"); }
-       else if self.contains(WordUsage::ADVERB) { out.push_str(",adverb"); }
-       else if self.contains(WordUsage::PRONOUN) { out.push_str(",pronoun"); }
-       else if self.contains(WordUsage::PREPOSITION) { out.push_str(",preposition"); }
-       else if self.contains(WordUsage::CONJUNCTION) { out.push_str(",conjunction"); }
-       else if self.contains(WordUsage::INTERJECTION) { out.push_str(",interjection"); }
+       if self.contains(WordUsage::NUMERAL) { out.push_str(",numeral"); }
+       if self.contains(WordUsage::ARTICLE) { out.push_str(",article"); }
+       if self.contains(WordUsage::DETERMINER) { out.push_str(",determiner"); }
+       if self.contains(WordUsage::NOUN) { out.push_str(",noun"); }
+       if self.contains(WordUsage::VERB) { out.push_str(",verb"); }
+       if self.contains(WordUsage::ADJECTIVE) { out.push_str(",adjective"); }
+       if self.contains(WordUsage::ADVERB) { out.push_str(",adverb"); }
+       if self.contains(WordUsage::PRONOUN) { out.push_str(",pronoun"); }
+       if self.contains(WordUsage::PREPOSITION) { out.push_str(",preposition"); }
+       if self.contains(WordUsage::CONJUNCTION) { out.push_str(",conjunction"); }
+       if self.contains(WordUsage::INTERJECTION) { out.push_str(",interjection"); }
        write!(f, "{}", if out.len()==0 {""} else {&out[1..]})
     }
 }
