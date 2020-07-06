@@ -1,6 +1,6 @@
 [package]
 name = "so_many_words"
-version = "0.0.7"
+version = "0.0.8"
 authors = ["Andrew <andrew@subarctic.org>"]
 license = "MIT OR Apache-2.0"
 description = "Not Linear Programming"
@@ -18,3 +18,7 @@ regex = "1"
 [[bin]]
 name = "regress_sentences"
 path = "src/regress_sentences.rs"
+
+[[bin]]
+name = "tokenize"
+path = "src/bin_tokenize.rs"
