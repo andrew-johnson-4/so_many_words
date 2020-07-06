@@ -1,14 +1,16 @@
 use crate::en::grammar::WordUsage;
 use crate::util::read_lines;
-use crate::en::tokens::{is_numeral,is_punctuation};
+use crate::en::tokens::Tokenizer;
 use radix_trie::Trie;
 
 pub struct Dictionary {
+   tokenizer: Tokenizer,
    diction: Trie<String,WordUsage>
 }
 impl Dictionary {
    pub fn new() -> Dictionary {
       Dictionary {
+         tokenizer: Tokenizer::new(),
          diction: Trie::new()
       }
    }
@@ -37,10 +39,10 @@ impl Dictionary {
       }
    }
    pub fn usage(&self, word: &str) -> WordUsage {
-      if is_numeral(word) {
+      if self.tokenizer.is_numeral(word) {
          WordUsage::NUMERAL | WordUsage::NOUN | WordUsage::ADJECTIVE |
          (if word=="1" { WordUsage::SINGULAR } else { WordUsage::PLURAL })
-      } else if is_punctuation(word) {
+      } else if self.tokenizer.is_punctuation(word) {
          WordUsage::PUNCTUATION
       } else if let Some(usage) = self.diction.get(word) {
          usage.clone()

@@ -1,75 +1,84 @@
-use so_many_words::en::tokens::{is_numeral,is_punctuation,is_word,tokenize};
-
+use so_many_words::en::tokens::Tokenizer;
 
 #[test]
 fn token1() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_numeral("1")
+      tokenizer.is_numeral("1")
    );
 }
 
 #[test]
 fn token2() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_numeral("0123456789")
+      tokenizer.is_numeral("0123456789")
    );
 }
 
 #[test]
 fn token3() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      !is_numeral("0a")
+      !tokenizer.is_numeral("0a")
    );
 }
 
 #[test]
 fn token4() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      !is_punctuation("0a")
+      !tokenizer.is_punctuation("0a")
    );
 }
 
 #[test]
 fn token5() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_punctuation(",")
+      tokenizer.is_punctuation(",")
    );
 }
 
 #[test]
 fn token6() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_punctuation("{")
+      tokenizer.is_punctuation("{")
    );
 }
 
 #[test]
 fn token7() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_word("albeit")
+      tokenizer.is_word("albeit")
    );
 }
 
 #[test]
 fn token8() {
+   let tokenizer = Tokenizer::new();
    assert!(
-      is_word("gr8")
+      tokenizer.is_word("gr8")
    );
 }
 
 #[test]
 fn token9() {
+   let tokenizer = Tokenizer::new();
    let v: Vec<String> = Vec::new();
    assert_eq!(
-      tokenize("   "),
+      tokenizer.tokenize("   "),
       v
    )
 }
 
 #[test]
 fn token10() {
+   let tokenizer = Tokenizer::new();
    assert_eq!(
-      tokenize("abcd8 999   :,"),
+      tokenizer.tokenize("abcd8 999   :,"),
       vec!["abcd8".to_string(), "999".to_string(), ":".to_string(), ",".to_string()]
    )
 }

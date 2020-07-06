@@ -8,19 +8,20 @@ where P: AsRef<Path>, {
     Ok(io::BufReader::new(file).lines())
 }
 
-use so_many_words::en::tokens::tokenize;
+use so_many_words::en::tokens::Tokenizer;
 //use so_many_words::en::grammar::RigidLanguage;
 use so_many_words::en::vocabulary::Dictionary;
 use so_many_words::en::tensor::DictionLayer;
 
 fn main() {
+   let tokenizer = Tokenizer::new();
    let _dict: DictionLayer = Dictionary::new().into();
    //let lang: NeuralNetwork = RigidLanguage::new().into();
 
    if let Ok(lines) = read_lines("data/gutenberg_sentences.txt") {
       for line in lines {
          if let Ok(sent) = line {
-            let ws = tokenize(&sent);
+            let ws = tokenizer.tokenize(&sent);
             println!("{}", ws.join(" "));
          }
       }
