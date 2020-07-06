@@ -43,6 +43,23 @@ bitflags! {
       //12 Parts of Speech
    }
 }
+impl WordUsage {
+   pub fn raise(&mut self, flag: &str) {
+      if flag=="PUNCTUATION" { *self |= WordUsage::PUNCTUATION }
+      else if flag=="NUMERAL" { *self |= WordUsage::NUMERAL }
+      else if flag=="ARTICLE" { *self |= WordUsage::ARTICLE }
+      else if flag=="DETERMINER" { *self |= WordUsage::DETERMINER }
+      else if flag=="NOUN" { *self |= WordUsage::NOUN }
+      else if flag=="VERB" { *self |= WordUsage::VERB }
+      else if flag=="ADJECTIVE" { *self |= WordUsage::ADJECTIVE }
+      else if flag=="ADVERB" { *self |= WordUsage::ADVERB }
+      else if flag=="PRONOUN" { *self |= WordUsage::PRONOUN }
+      else if flag=="PREPOSITION" { *self |= WordUsage::PREPOSITION }
+      else if flag=="CONJUNCTION" { *self |= WordUsage::CONJUNCTION }
+      else if flag=="INTERJECTION" { *self |= WordUsage::INTERJECTION }
+      else { panic!("unknown WordUsage flag: {}", flag) }
+   }
+}
 
 pub struct GrammarVertex {
    pub is_terminal: bool,
