@@ -58,26 +58,32 @@ impl WordUsage {
       else if flag=="PREPOSITION" { *self |= WordUsage::PREPOSITION }
       else if flag=="CONJUNCTION" { *self |= WordUsage::CONJUNCTION }
       else if flag=="INTERJECTION" { *self |= WordUsage::INTERJECTION }
+      else if flag=="SINGULAR" { *self |= WordUsage::SINGULAR }
+      else if flag=="PLURAL" { *self |= WordUsage::PLURAL }
+      else if flag=="LINKING" { *self |= WordUsage::LINKING }
+      else if flag=="INTRANSITIVE" { *self |= WordUsage::INTRANSITIVE }
+      else if flag=="MONOTRANSITIVE" { *self |= WordUsage::MONOTRANSITIVE }
+      else if flag=="DITRANSITIVE" { *self |= WordUsage::DITRANSITIVE }
+      else if flag=="PRESENT_SIMPLE" { *self |= WordUsage::PRESENT_SIMPLE }
+      else if flag=="PRESENT_CONTINUOUS" { *self |= WordUsage::PRESENT_CONTINUOUS }
+      else if flag=="PRESENT_PERFECT" { *self |= WordUsage::PRESENT_PERFECT }
+      else if flag=="PRESENT_PERFECT_CONTINUOUS" { *self |= WordUsage::PRESENT_PERFECT_CONTINUOUS }
+      else if flag=="PAST_SIMPLE" { *self |= WordUsage::PAST_SIMPLE }
+      else if flag=="PAST_CONTINUOUS" { *self |= WordUsage::PAST_CONTINUOUS }
+      else if flag=="PAST_PERFECT" { *self |= WordUsage::PAST_PERFECT }
+      else if flag=="PAST_PERFECT_CONTINUOUS" { *self |= WordUsage::PAST_PERFECT_CONTINUOUS }
+      else if flag=="FUTURE_SIMPLE" { *self |= WordUsage::FUTURE_SIMPLE }
+      else if flag=="FUTURE_CONTINUOUS" { *self |= WordUsage::FUTURE_CONTINUOUS }
+      else if flag=="FUTURE_PERFECT" { *self |= WordUsage::FUTURE_PERFECT }
+      else if flag=="FUTURE_PERFECT_CONTINUOUS" { *self |= WordUsage::FUTURE_PERFECT_CONTINUOUS }
       else { panic!("unknown WordUsage flag: {}", flag) }
    }
 }
 
 impl std::fmt::Display for WordUsage {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-       let mut out = String::new();
-       if self.contains(WordUsage::PUNCTUATION) { out.push_str(",punctuation"); }
-       if self.contains(WordUsage::NUMERAL) { out.push_str(",numeral"); }
-       if self.contains(WordUsage::ARTICLE) { out.push_str(",article"); }
-       if self.contains(WordUsage::DETERMINER) { out.push_str(",determiner"); }
-       if self.contains(WordUsage::NOUN) { out.push_str(",noun"); }
-       if self.contains(WordUsage::VERB) { out.push_str(",verb"); }
-       if self.contains(WordUsage::ADJECTIVE) { out.push_str(",adjective"); }
-       if self.contains(WordUsage::ADVERB) { out.push_str(",adverb"); }
-       if self.contains(WordUsage::PRONOUN) { out.push_str(",pronoun"); }
-       if self.contains(WordUsage::PREPOSITION) { out.push_str(",preposition"); }
-       if self.contains(WordUsage::CONJUNCTION) { out.push_str(",conjunction"); }
-       if self.contains(WordUsage::INTERJECTION) { out.push_str(",interjection"); }
-       write!(f, "{}", if out.len()==0 {""} else {&out[1..]})
+       let out = format!("{:?}", self).replace(" | ",",").to_lowercase().replace("none","");
+       write!(f, "{}", out)
     }
 }
 
