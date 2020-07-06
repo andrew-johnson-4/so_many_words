@@ -2,6 +2,8 @@ use bitflags::bitflags;
 
 bitflags! {
    pub struct WordUsage: u64 {
+      const NONE                       = 0;
+
       const SINGULAR                   = 0b00000000_00000000_00000000_00000001;
       const PLURAL                     = 0b00000000_00000000_00000000_00000010;
       //2 Pluralities
@@ -42,20 +44,56 @@ bitflags! {
    }
 }
 
-pub enum EBNF {
-   Symbol(WordUsage),
-   Sequence(Vec<EBNF>),
-   Choice(Vec<EBNF>),
+pub struct GrammarVertex {
+   pub is_terminal: bool,
+   pub word: WordUsage,
+}
+impl GrammarVertex {
+   pub fn new(word: WordUsage, is_terminal: bool) -> GrammarVertex {
+      GrammarVertex {
+         is_terminal: is_terminal,
+         word: word,
+      }
+   }
+}
+
+pub struct RegularLanguage {
+   pub nodes: Vec<GrammarVertex>,
+   pub adjacency_list: Vec<(usize,usize)>,
+}
+impl RegularLanguage {
+   pub fn new(is_terminal: bool) -> RegularLanguage {
+      RegularLanguage {
+         nodes: vec![
+            GrammarVertex::new(WordUsage::NONE, is_terminal)
+         ],
+         adjacency_list: Vec::new(),
+      }
+   }
+   pub fn put(&mut self, n: GrammarVertex) -> usize {
+      let i = self.nodes.len();
+      self.nodes.push(n);
+      i
+   }
+   pub fn v(&mut self, word: WordUsage, is_terminal: bool) -> usize {
+      self.put(GrammarVertex::new(word, is_terminal))
+   }
+   pub fn e(&mut self, a: usize, b: usize) {
+      self.adjacency_list.push((a, b));
+   }
 }
 
 pub struct RigidLanguage;
 impl RigidLanguage {
-   pub fn new() -> EBNF {
-      let rigid_subject      : EBNF = EBNF::Symbol(WordUsage::NOUN);
-      let rigid_verb         : EBNF = EBNF::Symbol(WordUsage::VERB);
-      let rigid_direct_object: EBNF = EBNF::Symbol(WordUsage::NOUN);
-      let rigid_adverb       : EBNF = EBNF::Symbol(WordUsage::ADVERB);
-      let rigid_sentence     : EBNF = EBNF::Sequence(vec![rigid_subject, rigid_verb, rigid_direct_object, rigid_adverb]);
-      rigid_sentence
+   pub fn new() -> RegularLanguage {
+      let mut l                = RegularLanguage::new(false);
+      let rigid_subject        = l.v(WordUsage::NOUN, false);
+      let rigid_verb           = l.v(WordUsage::VERB, false);
+      let rigid_direct_object  = l.v(WordUsage::NOUN, false);
+      let rigid_adverb         = l.v(WordUsage::ADVERB, true);
+      l.e(rigid_subject, rigid_verb);
+      l.e(rigid_verb, rigid_direct_object);
+      l.e(rigid_direct_object, rigid_adverb);
+      l
    }
 }
