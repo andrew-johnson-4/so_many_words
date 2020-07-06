@@ -128,7 +128,10 @@ impl RegularLanguage {
 
 pub struct ParseResult {
    pub passed: Vec<WordUsage>,
-   pub at_node: usize
+   pub at_node: usize,
+}
+pub struct ParseLines {
+   pub lines: Vec<ParseLine>,
 }
 
 pub struct RigidLanguage;
