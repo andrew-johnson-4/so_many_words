@@ -10,6 +10,7 @@ This writes a lot of words, not so much for reading. Maybe this could eventually
 
 ```rust
 cargo run --bin tokenize [input]
+cargo run --bin stem [input]
 ```
 
 ## Contribution

@@ -1,6 +1,6 @@
 [package]
 name = "so_many_words"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Andrew <andrew@subarctic.org>"]
 license = "MIT OR Apache-2.0"
 description = "Not Linear Programming"
@@ -14,6 +14,15 @@ keywords = ["natural","language","processing","nlp"]
 radix_trie = "0.2.0"
 bitflags = "1.2.1"
 regex = "1"
+rust-stemmers = "1.2"
+
+[[bin]]
+name = "tokenize"
+path = "src/bin_tokenize.rs"
+
+[[bin]]
+name = "stem"
+path = "src/bin_stem.rs"
 
 [[bin]]
 name = "regress_sentences"
@@ -27,7 +36,4 @@ path = "src/bin_generate_empty_dictionary.rs"
 name = "count_dictionary"
 path = "src/bin_count_dictionary.rs"
 
-[[bin]]
-name = "tokenize"
-path = "src/bin_tokenize.rs"
 
