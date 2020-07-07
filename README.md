@@ -12,6 +12,7 @@ This writes a lot of words, not so much for reading. Maybe this could eventually
 cargo run --bin tokenize [input]
 cargo run --bin stem [language] [input]
 cargo run --bin detect [input]
+cargo run --bin eudex [input]
 ```
 
 Partial support for these language: Arabic, Danish, Dutch, English, French, German

@@ -1,6 +1,6 @@
 [package]
 name = "so_many_words"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["Andrew <andrew@subarctic.org>"]
 license = "MIT OR Apache-2.0"
 description = "Not Linear Programming"

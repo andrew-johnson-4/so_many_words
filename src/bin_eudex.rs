@@ -7,7 +7,6 @@ fn main() {
     let tokenizer = Tokenizer::new();
     let args: Vec<String> = env::args().collect();
     for fp in args[1..].iter() {
-       if fp.starts_with("--") { continue; }
        if let Ok(lines) = read_lines(fp) {
           for line in lines {
              if let Ok(sent) = line {
