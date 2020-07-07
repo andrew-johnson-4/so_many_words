@@ -1,6 +1,6 @@
 [package]
 name = "so_many_words"
-version = "0.1.7"
+version = "0.1.8"
 authors = ["Andrew <andrew@subarctic.org>"]
 license = "MIT OR Apache-2.0"
 description = "Not Linear Programming"
@@ -15,6 +15,7 @@ radix_trie = "0.2.0"
 bitflags = "1.2.1"
 regex = "1"
 rust-stemmers = "1.2"
+whatlang = "0.9.0"
 
 [[bin]]
 name = "tokenize"
@@ -23,6 +24,10 @@ path = "src/bin_tokenize.rs"
 [[bin]]
 name = "stem"
 path = "src/bin_stem.rs"
+
+[[bin]]
+name = "detect"
+path = "src/bin_detect.rs"
 
 [[bin]]
 name = "regress_sentences"
