@@ -2,6 +2,7 @@ use crate::en::grammar::WordUsage;
 use crate::util::read_lines;
 use crate::en::tokens::Tokenizer;
 use radix_trie::Trie;
+use radix_trie::TrieCommon;
 
 pub struct Dictionary {
    tokenizer: Tokenizer,
@@ -14,7 +15,11 @@ impl Dictionary {
          diction: Trie::new()
       }
    }
+   pub fn len(&self) -> usize {
+      self.diction.len()
+   }
    pub fn insert(&mut self, key: String, usage: WordUsage) {
+      if usage == WordUsage::NONE { return; }
       if let Some(record) = self.diction.get_mut(&key) {
          *record |= usage;
       } else {

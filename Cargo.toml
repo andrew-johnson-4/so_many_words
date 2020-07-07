@@ -24,5 +24,9 @@ name = "generate_empty_dictionary"
 path = "src/bin_generate_empty_dictionary.rs"
 
 [[bin]]
+name = "count_dictionary"
+path = "src/bin_count_dictionary.rs"
+
+[[bin]]
 name = "tokenize"
 path = "src/bin_tokenize.rs"
