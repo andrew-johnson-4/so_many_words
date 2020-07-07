@@ -10,8 +10,12 @@ This writes a lot of words, not so much for reading. Maybe this could eventually
 
 ```rust
 cargo run --bin tokenize [input]
-cargo run --bin stem [input]
+cargo run --bin stem [language] [input]
 ```
+
+Partial support for these language: Arabic, Danish, Dutch, English, French, German
+Greek, Hungarian, Italian, Norwegian, Portuguese, Romanian, Russian, Spanish, Swedish
+Tamil, Turkish
 
 ## Contribution
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in so_many_words by you,
