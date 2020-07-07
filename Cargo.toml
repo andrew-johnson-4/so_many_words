@@ -16,6 +16,11 @@ bitflags = "1.2.1"
 regex = "1"
 rust-stemmers = "1.2"
 whatlang = "0.9.0"
+eudex = "0.1.1"
+
+[[bin]]
+name = "eudex"
+path = "src/bin_eudex.rs"
 
 [[bin]]
 name = "tokenize"
