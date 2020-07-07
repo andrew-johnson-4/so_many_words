@@ -1,35 +1,37 @@
+use crate::lang::Lang;
 
 pub struct Stemmer {
-   stemmer: rust_stemmers::Stemmer,
+   stemmer: Option<rust_stemmers::Stemmer>,
 }
 
 impl Stemmer {
-   pub fn new(lang: &str) -> Stemmer {
-      let lang = lang.to_lowercase();
-      let alg = if lang=="arabic" { rust_stemmers::Algorithm::Arabic }
-           else if lang=="danish" { rust_stemmers::Algorithm::Danish }
-           else if lang=="dutch" { rust_stemmers::Algorithm::Dutch }
-           else if lang=="english" { rust_stemmers::Algorithm::English }
-           else if lang=="french" { rust_stemmers::Algorithm::French }
-           else if lang=="german" { rust_stemmers::Algorithm::German }
-           else if lang=="greek" { rust_stemmers::Algorithm::Greek }
-           else if lang=="hungarian" { rust_stemmers::Algorithm::Hungarian }
-           else if lang=="italian" { rust_stemmers::Algorithm::Italian }
-           else if lang=="norwegian" { rust_stemmers::Algorithm::Norwegian }
-           else if lang=="portuguese" { rust_stemmers::Algorithm::Portuguese }
-           else if lang=="romanian" { rust_stemmers::Algorithm::Romanian }
-           else if lang=="russian" { rust_stemmers::Algorithm::Russian }
-           else if lang=="spanish" { rust_stemmers::Algorithm::Spanish }
-           else if lang=="swedish" { rust_stemmers::Algorithm::Swedish }
-           else if lang=="tamil" { rust_stemmers::Algorithm::Tamil }
-           else if lang=="turkish" { rust_stemmers::Algorithm::Turkish }
-           else { panic!("unrecognized language: {}", lang) };
+   pub fn new(lang: &Lang) -> Stemmer {
+      let alg = if lang==&Lang::Arabic { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Arabic)) }
+           else if lang==&Lang::Danish { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Danish)) }
+           else if lang==&Lang::Dutch { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Dutch)) }
+           else if lang==&Lang::English { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::English)) }
+           else if lang==&Lang::French { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::French)) }
+           else if lang==&Lang::German { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::German)) }
+           else if lang==&Lang::Greek { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Greek)) }
+           else if lang==&Lang::Hungarian { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Hungarian)) }
+           else if lang==&Lang::Italian { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Italian)) }
+           else if lang==&Lang::Norwegian { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Norwegian)) }
+           else if lang==&Lang::Portuguese { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Portuguese)) }
+           else if lang==&Lang::Romanian { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Romanian)) }
+           else if lang==&Lang::Russian { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Russian)) }
+           else if lang==&Lang::Spanish { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Spanish)) }
+           else if lang==&Lang::Swedish { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Swedish)) }
+           else if lang==&Lang::Tamil { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Tamil)) }
+           else if lang==&Lang::Turkish { Some(rust_stemmers::Stemmer::create(rust_stemmers::Algorithm::Turkish)) }
+           else { None };
       Stemmer {
-         stemmer: rust_stemmers::Stemmer::create(alg)
+         stemmer: alg
       }
    }
    pub fn stem(&self, w: &str) -> String {
       let w = w.to_lowercase();
-      self.stemmer.stem(&w).to_string()
+      if let Some(ref stemmer) = self.stemmer {
+         stemmer.stem(&w).to_string()
+      } else { w }
    }
 }

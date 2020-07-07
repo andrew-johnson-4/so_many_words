@@ -14,7 +14,7 @@ fn main() {
           lang = fp.to_string();
        }
     }
-    let stemmer = Stemmer::new(&lang);
+    let stemmer = Stemmer::new(&lang.into());
     for fp in args[1..].iter() {
        if fp.starts_with("--") { continue; }
        if let Ok(lines) = read_lines(fp) {
