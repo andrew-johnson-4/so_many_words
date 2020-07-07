@@ -30,3 +30,4 @@ path = "src/bin_count_dictionary.rs"
 [[bin]]
 name = "tokenize"
 path = "src/bin_tokenize.rs"
+
