@@ -23,9 +23,9 @@ fn main() {
 
       println!("{}", term);
       let mut results = Vec::new();
-      while let Some((key,val)) = stream.next() {
+      while let Some((key,_)) = stream.next() {
          let key = String::from_utf8_lossy(key).to_string();
-         let kh = Hash { hash:val };
+         let kh = Hash::new(&key);
          let dh = (th - kh).dist();
          results.push((dh, key));
       }
