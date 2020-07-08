@@ -14,6 +14,7 @@ cargo run --bin stem [language] [input]
 cargo run --bin detect [input]
 cargo run --bin eudex [input]
 cargo run --bin build_phoneme [language] [input]
+cargo run --bin search_phoneme [terms]
 ```
 
 Partial support for these language: Arabic, Danish, Dutch, English, French, German
