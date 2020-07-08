@@ -1,5 +1,6 @@
 Cargo.lock
 target/
+data/phoneme_*.fst
 data/empty_dictionary.txt
 data/manually_tagged_dictionary_*.txt
 data/gutenberg_sentences.txt

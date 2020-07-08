@@ -1,6 +1,6 @@
 [package]
 name = "so_many_words"
-version = "0.1.9"
+version = "0.1.10"
 authors = ["Andrew <andrew@subarctic.org>"]
 license = "MIT OR Apache-2.0"
 description = "Not Linear Programming"
@@ -17,6 +17,7 @@ regex = "1"
 rust-stemmers = "1.2"
 whatlang = "0.9.0"
 eudex = "0.1.1"
+fst = "0.4"
 
 [[bin]]
 name = "eudex"
@@ -33,6 +34,10 @@ path = "src/bin_stem.rs"
 [[bin]]
 name = "detect"
 path = "src/bin_detect.rs"
+
+[[bin]]
+name = "build_phoneme"
+path = "src/bin_build_phoneme.rs"
 
 [[bin]]
 name = "regress_sentences"
