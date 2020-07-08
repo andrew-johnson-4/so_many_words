@@ -1,7 +1,7 @@
 Cargo.lock
 target/
 data/empty_dictionary.txt
-data/manually_tagged_dictionary.txt
+data/manually_tagged_dictionary_*.txt
 data/gutenberg_sentences.txt
 data/enwiki-latest-abstract*
 data/wiktionary_sentences_en.txt.txt
