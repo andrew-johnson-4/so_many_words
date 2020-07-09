@@ -22,3 +22,4 @@ for term in terms:
         for ipa in re.findall("[/](\\w+)[/]",phone):
            ps.append(ipa)
     outfile.write(term+" "+",".join(ps)+"\n")
+    outfile.flush()
