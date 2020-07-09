@@ -1,3 +1,4 @@
+import time
 terms = set()
 for line in open("data/manually_tagged_dictionary_eng.txt"):
     term = line.split()[0]
@@ -23,3 +24,4 @@ for term in terms:
            ps.append(ipa)
     outfile.write(term+" "+",".join(ps)+"\n")
     outfile.flush()
+    time.sleep(1)
