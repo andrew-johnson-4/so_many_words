@@ -1,6 +1,7 @@
 Cargo.lock
 target/
 data/phoneme_*.fst
+data/missing_wiktionary_pronunciation_*.txt
 data/wiktionary_pronunciation_*.txt 
 data/empty_dictionary.txt
 data/manually_tagged_dictionary_*.txt
