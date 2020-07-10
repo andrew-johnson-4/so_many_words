@@ -21,6 +21,10 @@ Partial support for these language: Arabic, Danish, Dutch, English, French, Germ
 Greek, Hungarian, Italian, Norwegian, Portuguese, Romanian, Russian, Spanish, Swedish
 Tamil, Turkish
 
+If you would like to contribute to this project or more generally to any Open NLP
+Project then checkout my [TODO](https://www.subarctic.org/finding_ways_to_help_out_other_open_nlp_projects.html)
+page for open issues.
+
 ## Contribution
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in so_many_words by you,
 shall be dual licensed under the MIT and Apache 2.0 license without any additional terms or conditions.
